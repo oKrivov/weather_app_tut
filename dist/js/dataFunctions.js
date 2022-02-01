@@ -1,5 +1,3 @@
-// const WEATER_API_KEY = `git `;
-
 export const setLocationObject = (locationObj, coordsObj) => {
 	const { lat, lon, name, unit } = coordsObj;
 	locationObj.setLat(lat);
@@ -18,8 +16,7 @@ export const getWeatherFromCoords = async (locationObj) => {
 	/*const lat = locationObj.getLat();
 	const lon = locationObj.getLon();
 	const units = locationObj.getUnit();
-	const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&
-	exclude=minutely,hourly,alert&units=${units}&appid=${WEATER_API_KEY}`;
+	const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&	exclude=minutely,hourly,alert&units=${units}&appid=${WEATER_API_KEY}`;
 	try {
 		const weatherStream = await fetch(url);
 		const weatherJson = await weatherStream.json();
@@ -34,7 +31,7 @@ export const getWeatherFromCoords = async (locationObj) => {
 		units: locationObj.getUnit()
 	};
 	try {
-		const weatherStream = await fetch('./netlify/function/get_weather', {
+		const weatherStream = await fetch('./.netlify/functions/get_weather', {
 			method: "POST",
 			body: JSON.stringify(urlDataObj),
 		});
@@ -73,7 +70,6 @@ export const getCoordsFromApi = async (entryText, units) => {
 		console.error(err);
 	}
 };
-
 
 export const cleanText = (text) => {
 	const regex = / {2,}/g;
